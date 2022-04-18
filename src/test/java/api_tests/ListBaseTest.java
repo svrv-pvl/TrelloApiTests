@@ -12,7 +12,7 @@ public class ListBaseTest {
     protected static String createDefaultListAndReturnId(String boardId){
         listClient = new ListClient();
         String defaultBoardName = "defaultBoardName";
-        Response response = listClient.sendListPostRequest(BOARD_ID, defaultBoardName);
+        Response response = listClient.sendPostListRequest(BOARD_ID, defaultBoardName);
         response.then().assertThat().statusCode(HttpStatus.SC_OK);
         CreateListResponseBody createListResponseBody = response.as(CreateListResponseBody.class);
         return createListResponseBody.getId();

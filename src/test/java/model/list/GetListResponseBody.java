@@ -11,4 +11,14 @@ public class GetListResponseBody {
     private Boolean closed;
     private String idBoard;
     private int pos;
+
+    public String getValueByFieldName(String fieldName){
+        return switch (fieldName) {
+            case ("name") -> name;
+            case ("closed") -> closed.toString();
+            case ("idBoard") -> idBoard;
+            case ("pos") -> String.valueOf(pos);
+            default -> "no value";
+        };
+    }
 }

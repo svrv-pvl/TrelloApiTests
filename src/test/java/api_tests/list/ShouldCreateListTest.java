@@ -18,7 +18,7 @@ public class ShouldCreateListTest extends ListBaseTest {
     @BeforeAll
     public static void arrange(){
         listClient = new ListClient();
-        createListResponse = listClient.sendListPostRequest(BOARD_ID, LIST_NAME);
+        createListResponse = listClient.sendPostListRequest(BOARD_ID, LIST_NAME);
         createListResponseBody = createListResponse.as(CreateListResponseBody.class);
     }
 

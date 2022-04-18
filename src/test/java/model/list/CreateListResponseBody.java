@@ -5,12 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class CreateListResponseBody {
-    private String id;
-    private String name;
-    private Boolean closed;
-    private String idBoard;
-    private int pos;
+public class CreateListResponseBody extends GetListResponseBody{
     private Object limits;
     //TODO Need to create normal class for limits
 }

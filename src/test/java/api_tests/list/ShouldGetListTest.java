@@ -5,7 +5,6 @@ import io.restassured.response.Response;
 import model.list.GetListResponseBody;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.RepeatedTest;
-import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -20,8 +19,9 @@ public class ShouldGetListTest extends ListBaseTest {
 
     @RepeatedTest(3)
     public void act(){
-        Response getListResponse = listClient.sendListGetRequest(listId);
+        Response getListResponse = listClient.sendGetListRequest(listId);
         GetListResponseBody getListResponseBody = getListResponse.as(GetListResponseBody.class);
+        assertEquals(200, getListResponse.statusCode());
         assertEquals(listId, getListResponseBody.getId());
         assertEquals(BOARD_ID, getListResponseBody.getIdBoard());
         assertEquals(EXPECTED_CLOSED_VALUE, getListResponseBody.getClosed());
