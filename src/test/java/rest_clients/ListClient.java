@@ -9,9 +9,14 @@ import io.restassured.specification.RequestSpecification;
 public class ListClient extends RestClient{
 
     public Response sendListPostRequest(String boardId, String listName){
-        RestAssured.filters(new RequestLoggingFilter(), new ResponseLoggingFilter());
-        RequestSpecification request = RestAssured.given().header("Content-Type", "text/plain");
-        String url = BASE_URL + "lists?idBoard=" + boardId + "&name=" + listName + "&key=" + KEY + "&token=" + TOKEN;
+        RequestSpecification request = prepareRequest();
+        String url = BASE_URL + "lists?idBoard=" + boardId + "&name=" + listName + "&" + returnKeyAndToken();
         return  request.post(url);
+    }
+
+    public Response sendListGetRequest(String listId){
+        RequestSpecification request = prepareRequest();
+        String url = BASE_URL + "lists/" + listId + "?" + returnKeyAndToken();
+        return request.get(url);
     }
 }
