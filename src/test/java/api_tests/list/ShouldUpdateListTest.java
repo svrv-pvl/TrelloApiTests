@@ -21,7 +21,20 @@ public class ShouldUpdateListTest extends ListBaseTest {
     @ParameterizedTest
     @CsvSource({
             "name,TEST",
-            "pos,124"
+            "name,' '",
+            "name,'    '",
+            "name,'                     '",
+            "name,'  '",
+            "name,!!!",
+            "name,'@#$'",
+            "name,'%^'",
+            "name,'*()'",
+            "name,'[]'",
+            "name,'+++'",
+            "name,adf af  adsf  adf ad f ad f dsafadsfdasf  adsf das f asdf  dsaf a sdf da f dsa f dasffadsfdasfadf",
+            "pos,124",
+            "closed, true",
+            "closed, false"
             })
     public void act(String parameter, String value){
         Response updateListResponse = listClient.sendUpdateListRequest(listId, parameter, value);
