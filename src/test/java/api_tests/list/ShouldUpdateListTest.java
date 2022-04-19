@@ -37,10 +37,11 @@ public class ShouldUpdateListTest extends ListBaseTest {
             "closed, false"
             })
     public void act(String parameter, String value){
+        //ACT
         Response updateListResponse = listClient.sendUpdateListRequest(listId, parameter, value);
         GetListResponseBody updateListResponseBody = updateListResponse.as(GetListResponseBody.class);
-        Response getListResponse = listClient.sendGetListRequest(listId);
-        GetListResponseBody getListResponseBody = getListResponse.as(GetListResponseBody.class);
+        GetListResponseBody getListResponseBody = getListAndReturnBody(listId);
+        //ASSERT
         assertEquals(200, updateListResponse.statusCode());
         assertEquals(value, updateListResponseBody.getValueByFieldName(parameter));
     }

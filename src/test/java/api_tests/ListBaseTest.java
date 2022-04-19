@@ -2,6 +2,7 @@ package api_tests;
 
 import io.restassured.response.Response;
 import model.list.CreateListResponseBody;
+import model.list.GetListResponseBody;
 import org.apache.http.HttpStatus;
 import rest_clients.ListClient;
 
@@ -17,4 +18,10 @@ public class ListBaseTest {
         CreateListResponseBody createListResponseBody = response.as(CreateListResponseBody.class);
         return createListResponseBody.getId();
     }
+
+    protected static GetListResponseBody getListAndReturnBody(String listId){
+        Response getListResponse = listClient.sendGetListRequest(listId);
+        return getListResponse.as(GetListResponseBody.class);
+    }
+
 }
