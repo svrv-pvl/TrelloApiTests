@@ -10,7 +10,7 @@ import rest_clients.ListClient;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class ShouldMoveListToNewBoard extends ListBaseTest {
+public class ShouldMoveListToNewBoardTest extends ListBaseTest {
     private static String firstBoardId;
     private static String secondBoardId;
     private static String listId;
