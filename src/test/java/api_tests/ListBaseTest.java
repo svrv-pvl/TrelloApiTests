@@ -22,6 +22,7 @@ public class ListBaseTest {
     }
 
     protected static void deleteBoard(String boardId){
+        boardClient = new BoardClient();
         Response response = boardClient.sendDeleteBoardRequest(boardId);
         response.then().assertThat().statusCode(HttpStatus.SC_OK);
     }
@@ -36,6 +37,7 @@ public class ListBaseTest {
     }
 
     protected static GetListResponseBody getListAndReturnBody(String listId){
+        listClient = new ListClient();
         Response getListResponse = listClient.sendGetListRequest(listId);
         return getListResponse.as(GetListResponseBody.class);
     }

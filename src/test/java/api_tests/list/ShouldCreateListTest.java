@@ -38,3 +38,5 @@ public class ShouldCreateListTest extends ListBaseTest {
         deleteBoard(boardId);
     }
 }
+
+//TODO create list with idListSource and pos parameters
