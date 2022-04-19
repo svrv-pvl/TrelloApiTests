@@ -10,6 +10,7 @@ import rest_clients.ListClient;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ShouldCreateListTest extends ListBaseTest {
+    private static String boardId;
     private static Response createListResponse;
     private static final String LIST_NAME = "testList";
     private static CreateListResponseBody createListResponseBody;
@@ -17,8 +18,9 @@ public class ShouldCreateListTest extends ListBaseTest {
 
     @BeforeAll
     public static void arrange(){
+        boardId = createDefaultBoardAndReturnId();
         listClient = new ListClient();
-        createListResponse = listClient.sendPostListRequest(BOARD_ID, LIST_NAME);
+        createListResponse = listClient.sendPostListRequest(boardId, LIST_NAME);
         createListResponseBody = createListResponse.as(CreateListResponseBody.class);
     }
 
@@ -26,7 +28,7 @@ public class ShouldCreateListTest extends ListBaseTest {
     public void act(){
         assertEquals(200, createListResponse.statusCode());
         assertEquals(LIST_NAME, createListResponseBody.getName());
-        assertEquals(BOARD_ID, createListResponseBody.getIdBoard());
+        assertEquals(boardId, createListResponseBody.getIdBoard());
         assertEquals(EXPECTED_CLOSED_VALUE, createListResponseBody.getClosed());
     }
 }

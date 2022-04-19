@@ -9,12 +9,14 @@ import org.junit.jupiter.api.RepeatedTest;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ShouldGetListTest extends ListBaseTest {
+    private static String boardId;
     private static String listId;
     private static final Boolean EXPECTED_CLOSED_VALUE = false;
 
     @BeforeAll
     public static void arrange(){
-        listId = createDefaultListAndReturnId(BOARD_ID);
+        boardId = createDefaultBoardAndReturnId();
+        listId = createDefaultListAndReturnId(boardId);
     }
 
     @RepeatedTest(3)
@@ -23,7 +25,7 @@ public class ShouldGetListTest extends ListBaseTest {
         GetListResponseBody getListResponseBody = getListResponse.as(GetListResponseBody.class);
         assertEquals(200, getListResponse.statusCode());
         assertEquals(listId, getListResponseBody.getId());
-        assertEquals(BOARD_ID, getListResponseBody.getIdBoard());
+        assertEquals(boardId, getListResponseBody.getIdBoard());
         assertEquals(EXPECTED_CLOSED_VALUE, getListResponseBody.getClosed());
     }
 }

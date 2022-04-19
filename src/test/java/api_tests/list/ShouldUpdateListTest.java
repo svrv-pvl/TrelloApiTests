@@ -10,11 +10,13 @@ import org.junit.jupiter.params.provider.CsvSource;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ShouldUpdateListTest extends ListBaseTest {
+    private static String boardId;
     private static String listId;
 
     @BeforeAll
     public static void arrange(){
-        listId = createDefaultListAndReturnId(BOARD_ID);
+        boardId = createDefaultBoardAndReturnId();
+        listId = createDefaultListAndReturnId(boardId);
     }
 
     //TODO add more parameters
