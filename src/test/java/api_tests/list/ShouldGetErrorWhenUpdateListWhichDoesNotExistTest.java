@@ -9,7 +9,7 @@ import rest_clients.ListClient;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class ShouldGetErrorWhenUpdateListWhichDoesNotExist extends ListBaseTest {
+public class ShouldGetErrorWhenUpdateListWhichDoesNotExistTest extends ListBaseTest {
     private static String boardId;
 
     @BeforeAll
