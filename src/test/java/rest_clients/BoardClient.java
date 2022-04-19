@@ -9,4 +9,10 @@ public class BoardClient extends RestClient{
         String url = BASE_URL + "boards?name=" + boardName + "&" + returnKeyAndToken();
         return request.post(url);
     }
+
+    public Response sendDeleteBoardRequest(String boardId){
+        RequestSpecification request = prepareRequest();
+        String url = BASE_URL + "boards/" + boardId + "?" + returnKeyAndToken();
+        return request.delete(url);
+    }
 }

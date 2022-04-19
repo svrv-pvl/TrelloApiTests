@@ -3,6 +3,7 @@ package api_tests.list;
 import api_tests.ListBaseTest;
 import io.restassured.response.Response;
 import model.list.GetListResponseBody;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -46,5 +47,10 @@ public class ShouldUpdateListTest extends ListBaseTest {
         //ASSERT
         assertEquals(200, updateListResponse.statusCode());
         assertEquals(value, updateListResponseBody.getValueByFieldName(parameter));
+    }
+
+    @AfterAll
+    public static void tearDown(){
+        deleteBoard(boardId);
     }
 }

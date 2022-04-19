@@ -3,6 +3,7 @@ package api_tests.list;
 import api_tests.ListBaseTest;
 import io.restassured.response.Response;
 import model.list.CreateListResponseBody;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import rest_clients.ListClient;
@@ -30,5 +31,10 @@ public class ShouldCreateListTest extends ListBaseTest {
         assertEquals(LIST_NAME, createListResponseBody.getName());
         assertEquals(boardId, createListResponseBody.getIdBoard());
         assertEquals(EXPECTED_CLOSED_VALUE, createListResponseBody.getClosed());
+    }
+
+    @AfterAll
+    public static void tearDown(){
+        deleteBoard(boardId);
     }
 }

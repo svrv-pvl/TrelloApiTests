@@ -21,6 +21,11 @@ public class ListBaseTest {
         return createBoardResponseBody.getId();
     }
 
+    protected static void deleteBoard(String boardId){
+        Response response = boardClient.sendDeleteBoardRequest(boardId);
+        response.then().assertThat().statusCode(HttpStatus.SC_OK);
+    }
+
     protected static String createDefaultListAndReturnId(String boardId){
         listClient = new ListClient();
         String defaultBoardName = "defaultBoardName";
