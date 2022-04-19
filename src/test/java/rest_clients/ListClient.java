@@ -22,4 +22,10 @@ public class ListClient extends RestClient{
         String url = BASE_URL + "lists/" + listId + "?" + parameter + "=" + newValue + "&" + returnKeyAndToken();
         return request.put(url);
     }
+
+    public Response sendMoveListRequest(String listId, String newBoardId){
+        RequestSpecification request = prepareRequest();
+        String url = BASE_URL + "lists/" + listId + "/idBoard?value=" + newBoardId + "&" + returnKeyAndToken();
+        return request.put(url);
+    }
 }
