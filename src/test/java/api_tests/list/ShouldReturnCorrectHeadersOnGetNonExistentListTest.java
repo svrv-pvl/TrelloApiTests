@@ -9,21 +9,20 @@ import rest_clients.ListClient;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class ShouldReturnCorrectHeadersOnGetListTest extends ListBaseTest{
+public class ShouldReturnCorrectHeadersOnGetNonExistentListTest extends ListBaseTest{
     private static String boardId;
-    private static String listId;
 
     @BeforeAll
     public static void arrange(){
         boardId = createDefaultBoardAndReturnId();
-        listId = createDefaultListAndReturnId(boardId);
     }
 
     @ParameterizedTest
-    @MethodSource("successfulHeadersDataProvider")
+    @MethodSource("errorHeadersDataProvider")
     public void act(String headerName, String headerValue){
         listClient = new ListClient();
-        Response response = listClient.sendGetListRequest(listId);
+        String listIdWhichDoesNotExist = "6245ceb79f1e246fb742c111";
+        Response response = listClient.sendGetListRequest(listIdWhichDoesNotExist);
         assertEquals(headerValue, response.getHeader(headerName));
     }
 

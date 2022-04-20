@@ -9,7 +9,7 @@ import rest_clients.ListClient;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class ShouldReturnCorrectHeadersOnGetListTest extends ListBaseTest{
+public class ShouldReturnCorrectHeadersOnUpdateListTest extends ListBaseTest{
     private static String boardId;
     private static String listId;
 
@@ -23,7 +23,7 @@ public class ShouldReturnCorrectHeadersOnGetListTest extends ListBaseTest{
     @MethodSource("successfulHeadersDataProvider")
     public void act(String headerName, String headerValue){
         listClient = new ListClient();
-        Response response = listClient.sendGetListRequest(listId);
+        Response response = listClient.sendUpdateListRequest(listId, "name", "newName");
         assertEquals(headerValue, response.getHeader(headerName));
     }
 
