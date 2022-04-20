@@ -1,0 +1,16 @@
+X-Dns-Prefetch-Control,off
+X-Frame-Options,DENY
+X-Download-Options,noopen
+X-Permitted-Cross-Domain-Policies,none
+Referrer-Policy,strict-origin-when-cross-origin
+Surrogate-Control,no-store
+Pragma,no-cache
+X-Trello-Environment,Production
+Access-Control-Allow-Origin,*
+Access-Control-Allow-Methods,GET, PUT, POST, DELETE
+Access-Control-Allow-Headers,Authorization, Accept, Content-Type
+Access-Control-Expose-Headers,x-rate-limit-api-key-interval-ms, x-rate-limit-api-key-max, x-rate-limit-api-key-remaining, x-rate-limit-api-token-interval-ms, x-rate-limit-api-token-max, x-rate-limit-api-token-remaining
+Strict-Transport-Security,max-age=63072000; preload
+X-Content-Type-Options,nosniff
+X-Xss-Protection,1; mode=block
+Server,globaledge-envoy

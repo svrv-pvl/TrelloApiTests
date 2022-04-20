@@ -1,6 +1,5 @@
 package api_tests.list;
 
-import api_tests.ListBaseTest;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;

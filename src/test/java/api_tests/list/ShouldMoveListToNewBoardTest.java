@@ -1,6 +1,5 @@
 package api_tests.list;
 
-import api_tests.ListBaseTest;
 import io.restassured.response.Response;
 import model.list.GetListResponseBody;
 import org.junit.jupiter.api.AfterAll;

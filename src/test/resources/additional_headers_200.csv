@@ -1,0 +1,10 @@
+Cache-Control,max-age=0, must-revalidate, no-cache, no-store
+Expires,Thu, 01 Jan 1970 00:00:00
+X-Rate-Limit-Api-Token-Interval-Ms,10000
+X-Rate-Limit-Api-Token-Max,100
+X-Rate-Limit-Api-Key-Interval-Ms,10000
+X-Rate-Limit-Api-Key-Max,300
+X-Rate-Limit-Member-Interval-Ms,10000
+Content-Type,application/json; charset=utf-8
+Content-Encoding,gzip
+Transfer-Encoding,chunked

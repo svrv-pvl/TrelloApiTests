@@ -1,5 +1,6 @@
-package api_tests;
+package api_tests.list;
 
+import api_tests.BaseTest;
 import io.restassured.response.Response;
 import model.board.CreateBoardResponseBody;
 import model.list.CreateListResponseBody;
@@ -8,7 +9,7 @@ import org.apache.http.HttpStatus;
 import rest_clients.BoardClient;
 import rest_clients.ListClient;
 
-public class ListBaseTest {
+public class ListBaseTest extends BaseTest {
     protected static String boardId;
     protected static ListClient listClient;
     protected static BoardClient boardClient;
